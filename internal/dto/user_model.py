@@ -1,13 +1,12 @@
-from pydantic import BaseModel, EmailStr
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
-from sqlalchemy.orm import relationship
+import uuid
 
-class UserBased(BaseModel):
-    first_name: str
-    last_name: str
-    birth_date: str
-    gender: str
-    email: str
-    phone_number: str
-    address: str
-    is_admin: bool
+from pydantic import BaseModel, EmailStr
+
+from user_case.pydantic import PhoneStr
+
+
+class BaseApplication(BaseModel):
+
+    phone: PhoneStr
+    email: EmailStr
+    text: str
