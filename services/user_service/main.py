@@ -3,7 +3,7 @@ from loguru import logger
 from  fastapi import FastAPI, Depends
 from dotenv import load_dotenv
 from .di import init_di
-from .configs.setting import cfg
+from .config.setting import cfg
 from .presentation.apis.create_user import router as create_user_router
 
 load_dotenv()

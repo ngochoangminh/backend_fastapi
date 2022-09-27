@@ -1,6 +1,6 @@
 from kink import di
 
-from .configs.setting import cfg
+from .config.setting import cfg
 from core.modules.redis_module import RedisHelper
 
 from .domain.repository import UserRepository
