@@ -39,6 +39,3 @@ def get_common_columns(is_fk_user=True):
         get_user_fk_column("deleted_by") if is_fk_user else Column("deleted_by", psql.UUID(as_uuid=False)),
         Column("is_deleted", BOOLEAN, default=False)
     ]
-
-def get_common_language_column():
-    return Column("language", String(10))
