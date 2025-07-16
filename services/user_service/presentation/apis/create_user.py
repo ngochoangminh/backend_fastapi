@@ -4,11 +4,18 @@ from fastapi import APIRouter, Depends
 from core.base.base_response import BaseResponse
 from ...domain.usecases import CreateUserUsecase
 from ..schemas.user_info import *
+from ..schemas import *
 router = APIRouter()
 
 @router.post(
     '/create-user',
-    name='Create User'
+    name='Create User',
+    responses={
+        400: {"model": BadRequestResponseModel},
+        401: {"model": UnauthorizedRequestResponseModel},
+        422: {"model": Unprocessable},
+        500: {"model": InternalServerErrorModel},
+    },
 )
 async def create_user(
     data: CreateUserRequest,
